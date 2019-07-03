@@ -1,7 +1,7 @@
 # lejosdemo
 
 
-###### 最近，在通过lejOS进行学习嵌入式开发。
+###### 最近，在通过lejOS进行学习嵌入式开发。######
 
 ----
 <b>硬件准备：</b><br>
@@ -20,5 +20,5 @@
 4.Java嵌入式运行环境(JRE)：Oracle Java SE Embedded version 7 Update 75<br>
 5.LeJOS<br>
 
-##########备注：必须使用JDK7，原因Java嵌入式运行环境Oracle只支持到JDK7
+###### 备注：必须使用JDK7，原因Java嵌入式运行环境Oracle只支持到JDK7
 
