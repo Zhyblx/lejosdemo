@@ -7,8 +7,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * 类：ButtonDemo 作用：侦听某个按钮的按下事件
- * 说明：验证完成；7月4日完成文档注释
+ * 类：ButtonDemo 作用：侦听某个按钮的按下事件 说明：验证完成；7月4日完成文档注释
  * 
  * @author zhangyibin
  *
@@ -44,6 +43,17 @@ public class ButtonDemo {
 	public static void main(String[] args) {
 //		System.out.println(new Thread().getName());
 		timer.schedule(timerTask, 0);
+
+		/*
+		 *  按钮的Key编号:
+		 *  ENTER:2 
+		 *  ESCAPE:32
+		 *  LEFT:16 
+		 *  RIGHT:8 
+		 *  UP:1 
+		 *  DOWN:4
+		 * 
+		 */
 		while (true) {
 			int buttonKey = Button.waitForAnyPress();
 			if (buttonKey == Keys.ID_ENTER) {
