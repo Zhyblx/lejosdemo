@@ -26,7 +26,7 @@ import java.util.TimerTask;
  *
  */
 
-public class MotorDemo {
+public class LargeMotorDemo {
 
 	// RegulatedMotor(接口)：用于调节电机
 	private static RegulatedMotor motorC = null;
