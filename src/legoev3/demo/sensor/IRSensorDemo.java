@@ -19,7 +19,7 @@ public class IRSensorDemo {
 //		LCD.drawString(sensorModes.getName(), 0, 0);
 
 		EV3IRSensor iRSensor = new EV3IRSensor(port);
-//		
+
 //		iRSensor.getDistanceMode();
 //		LCD.drawString(String.valueOf(iRSensor.getDistanceMode()), 0, 0);
 //		iRSensor.getAvailableModes();
