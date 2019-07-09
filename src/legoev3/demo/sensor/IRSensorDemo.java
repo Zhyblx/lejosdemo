@@ -8,6 +8,14 @@ import lejos.utility.Delay;
 /**
  * 类：IRSensorDemo  作用：通过EV3提供的红外传感器，完成测量与前方物体的距离
  * 
+ * API地址：
+ * 	EV3IRSensor(类):http://www.lejos.org/ev3/docs/lejos/hardware/sensor/EV3IRSensor.html
+ * 	SensorMode(接口):http://www.lejos.org/ev3/docs/lejos/hardware/sensor/SensorMode.html
+ * 	SensorPort(接口):http://www.lejos.org/ev3/docs/lejos/hardware/port/SensorPort.html
+ * 	SensorMode(接口)继承了SampleProvider(接口)；所以SensorMode可以直接调用fetchSample()和sampleSize()方法
+ * 	SampleProvider(接口):http://www.lejos.org/ev3/docs/lejos/robotics/SampleProvider.html
+ * 
+ * 
  * @author zhangyibin
  *
  */
@@ -32,11 +40,13 @@ public class IRSensorDemo {
 		sensorMode.fetchSample(floatSensorMode, 0);// 从数组中取出采集的"距离"数
 		/*
 		 * 每一个采集的“距离”数都通过数组元素输出的方式呈现
+		 * 注意：如果“距离”太远，超过了0~50cm的采集范围，那么距离数的返回值是Infinity
 		 */
 		for (int i = 0; i < floatSensorMode.length; i++) {
-			System.out.println("探测距离是：" + floatSensorMode[i]);
+			System.out.println("distance:" + floatSensorMode[i]+"cm");
 
 		}
+		iRSensor.close();// 关闭传感器
 
 //		System.out.println(floatSensorMode[0]);
 //
