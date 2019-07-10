@@ -6,6 +6,8 @@ import lejos.hardware.sensor.SensorMode;
 import lejos.utility.Delay;
 
 /**
+ * 距离传感器
+ * 
  * 类：IRSensorDemo  作用：通过EV3提供的红外传感器，完成测量与前方物体的距离
  * 
  * API地址：
