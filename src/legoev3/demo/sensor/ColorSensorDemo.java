@@ -48,49 +48,49 @@ public class ColorSensorDemo {
 		
 		for (float colorId : floatSensorMode) {
 			if (colorId == ColorInterface.BLACK) {
-				LCD.drawString("BLACK", 0, 0);
+				LCD.drawString("BLACK", 0, 5);
 
 			} else if (colorId == ColorInterface.BLUE) {
-				LCD.drawString("BLUE", 0, 0);
+				LCD.drawString("BLUE", 0, 5);
 
 			} else if (colorId == ColorInterface.BROWN) {
-				LCD.drawString("BROWN", 0, 0);
+				LCD.drawString("BROWN", 0, 5);
 
 			} else if (colorId == ColorInterface.CYAN) {
-				LCD.drawString("CYAN", 0, 0);
+				LCD.drawString("CYAN", 0, 5);
 
 			} else if (colorId == ColorInterface.DARK_GRAY) {
-				LCD.drawString("DARK_GRAY", 0, 0);
+				LCD.drawString("DARK_GRAY", 0, 5);
 
 			} else if (colorId == ColorInterface.GRAY) {
-				LCD.drawString("GRAY", 0, 0);
+				LCD.drawString("GRAY", 0, 5);
 
 			} else if (colorId == ColorInterface.GREEN) {
-				LCD.drawString("GREEN", 0, 0);
+				LCD.drawString("GREEN", 0, 5);
 
 			} else if (colorId == ColorInterface.LIGHT_GRAY) {
-				LCD.drawString("LIGHT_GRAY", 0, 0);
+				LCD.drawString("LIGHT_GRAY", 0, 5);
 
 			} else if (colorId == ColorInterface.MAGENTA) {
-				LCD.drawString("MAGENTA", 0, 0);
+				LCD.drawString("MAGENTA", 0, 5);
 
 			} else if (colorId == ColorInterface.NONE) {
-				LCD.drawString("NONE", 0, 0);
+				LCD.drawString("NONE", 0, 5);
 
 			} else if (colorId == ColorInterface.ORANGE) {
-				LCD.drawString("ORANGE", 0, 0);
+				LCD.drawString("ORANGE", 0, 5);
 
 			} else if (colorId == ColorInterface.PINK) {
-				LCD.drawString("PINK", 0, 0);
+				LCD.drawString("PINK", 0, 5);
 
 			} else if (colorId == ColorInterface.RED) {
-				LCD.drawString("RED", 0, 0);
+				LCD.drawString("RED", 0, 5);
 
 			} else if (colorId == ColorInterface.WHITE) {
-				LCD.drawString("WHITE", 0, 0);
+				LCD.drawString("WHITE", 0, 5);
 
 			} else if (colorId == ColorInterface.YELLOW) {
-				LCD.drawString("YELLOW", 0, 0);
+				LCD.drawString("YELLOW", 0, 5);
 
 			} 
 		}
