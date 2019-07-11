@@ -17,11 +17,10 @@ import java.util.TimerTask;
  */
 
 public class AmbientLightDemo {
-
-	private EV3ColorSensor eV3ColorSensor = new EV3ColorSensor(SensorPort.S2);
-
+	EV3ColorSensor eV3ColorSensor=null;
 	// 探测光线强度
 	public float getAmbientNum() {
+		eV3ColorSensor = new EV3ColorSensor(SensorPort.S2);
 		float returnAmbientNum = 0;
 		SensorMode sensorMode = eV3ColorSensor.getAmbientMode();
 		float[] floatSensorMode = new float[sensorMode.sampleSize()];
@@ -30,13 +29,8 @@ public class AmbientLightDemo {
 			returnAmbientNum = ambientNum;
 
 		}
-		return returnAmbientNum;
-
-	}
-
-	// 关闭探测器
-	public void getColorSensorClose() {
 		eV3ColorSensor.close();
+		return returnAmbientNum;
 
 	}
 
@@ -45,36 +39,37 @@ public class AmbientLightDemo {
 		@Override
 		public void run() {
 			AmbientLightDemo ambientLightDemo = new AmbientLightDemo();
-			int i = 1;// 60秒
-			while (i < 61) {
+			int i = 1;
+			while (i < 6) {
 				try {
-					Thread.sleep(1000);
+					Thread.sleep(10000);
 
 				} catch (Exception e) {
 					e.printStackTrace();
 
 				}
 				float num = ambientLightDemo.getAmbientNum(); // 探测到的数据
+				LCD.drawString(String.valueOf(num), 0, 0);
 				if (num < 0.2) {
-					LCD.drawString(".", i, 6);
+					LCD.drawString("|", i, 6);
 
 				} else if (num >= 0.2 && num < 0.4) {
-					LCD.drawString(".", i, 5);
+					LCD.drawString("|", i, 5);
 
 				} else if (num >= 0.4 && num < 0.6) {
-					LCD.drawString(".", i, 4);
+					LCD.drawString("|", i, 4);
 
 				} else if (num >= 0.6 && num < 0.8) {
-					LCD.drawString(".", i, 3);
+					LCD.drawString("|", i, 3);
 
 				} else if (num >= 0.8 && num <= 1) {
-					LCD.drawString(".", i, 2);
+					LCD.drawString("|", i, 2);
 				}
 
-				if (i == 60) {
-					ambientLightDemo.getColorSensorClose();
+				if (i == 6) {
 					timer.cancel();
-
+					System.exit(0);
+					
 				}
 
 				i++;
@@ -86,7 +81,8 @@ public class AmbientLightDemo {
 
 	public static void main(String[] args) throws Exception {
 		timer.schedule(timerTask, 0);
-
+		Delay.msDelay(1000);
+		
 	}
 
 //	private static EV3ColorSensor eV3ColorSensor = new EV3ColorSensor(SensorPort.S2);
