@@ -29,6 +29,7 @@ public class TouchSensorDemo {
 		EV3TouchSensor eV3TouchSensor = new EV3TouchSensor(SensorPort.S3);
 		SensorMode sensorMode = eV3TouchSensor.getTouchMode();
 		float[] floatSensorMode = new float[sensorMode.sampleSize()];
+//		System.out.println(floatSensorMode.length);
 		sensorMode.fetchSample(floatSensorMode, 0);
 		for (float touchNum : floatSensorMode) {
 			/*
@@ -36,12 +37,12 @@ public class TouchSensorDemo {
 			 * 当按钮被按下后，显示按下的返回值，同时关闭传感器，5秒后退出程序
 			 * 
 			 */
-			if(touchNum==1) {
-				LCD.drawString(String.valueOf(touchNum), 0, 0);
+			if(touchNum==1.0) {
+				LCD.drawString("click", 0, 0);
 				eV3TouchSensor.close();// 关闭传感器
-				Delay.msDelay(5000);
 				
 			}
 		}
+		Delay.msDelay(5000);
 	}
 }
