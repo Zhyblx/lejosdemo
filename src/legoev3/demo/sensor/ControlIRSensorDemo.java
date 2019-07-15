@@ -1,5 +1,6 @@
 package legoev3.demo.sensor;
 
+import lejos.hardware.Button;
 import lejos.hardware.lcd.LCD;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3IRSensor;
@@ -51,26 +52,30 @@ public class ControlIRSensorDemo {
 		 * 
 		 */
 
-		EV3IRSensor iRSensor = new EV3IRSensor(SensorPort.S1);
-		/*
-		 * 调用getRemoteCommand()监控是否有远程命令(1表示按下，0表示没有按下)； 参数为：校验是否TOP-LEFT按键被按下了，
-		 * 
-		 */
-		int cmd = iRSensor.getRemoteCommand(1);
-		LCD.drawInt(cmd, 0, 0);
+		EV3IRSensor sensor = new EV3IRSensor(SensorPort.S1);
 
-		byte[] buf = new byte[4];
-		iRSensor.getRemoteCommands(buf, 0, 4);// getRemoteCommands() 方法代表的是组合按键
-		int i = 0;
-		for (byte butyNum : buf) {
-			if (butyNum != 0) {
-				i++;
-				LCD.drawInt(i, 0, 2);
+		while (!Button.DOWN.isDown()) {
+
+			int cmd = sensor.getRemoteCommand(2);
+			if (cmd != 0) {
+				LCD.drawString("cmd:" + String.valueOf(cmd), 0, 0);
+
 			}
-
+			byte[] buf = new byte[4];
+			sensor.getRemoteCommands(buf, 0, 4);
+			int k = 0;
+			for (float v : buf) {
+				if (v != 0) {
+					System.out.println("===v[" + (k++) + "]=" + v);
+				}else {
+					k++;
+				}					
+				// log.echo("v["+(k++)+"]="+v);
+			}
+			Delay.msDelay(1000);
+			
 		}
+		sensor.close();
 
-		Delay.msDelay(3000);
-		iRSensor.close();
 	}
 }
