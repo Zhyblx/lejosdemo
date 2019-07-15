@@ -27,18 +27,19 @@ public class TouchSensorDemo {
 		 */
 
 		EV3TouchSensor eV3TouchSensor = new EV3TouchSensor(SensorPort.S3);
-		SensorMode sensorMode = eV3TouchSensor.getTouchMode();
+		SensorMode sensorMode = eV3TouchSensor.getTouchMode(); // 调用方法getTouchMode()表示探测传感器的触摸模式。
 		float[] floatSensorMode = new float[sensorMode.sampleSize()];
 //		System.out.println(floatSensorMode.length);
 		sensorMode.fetchSample(floatSensorMode, 0);
 		for (float touchNum : floatSensorMode) {
 			/*
-			 * 触摸传感器:返回值0表示未按下按钮，1表示已按下按钮
-			 * 当按钮被按下后，显示按下的返回值，同时关闭传感器，5秒后退出程序
+			 * 
+			 * 1.判断：触摸传感器:返回值0表示未按下按钮，1表示已按下按钮
+			 * 2.操作注意点：在测试触摸传感器的过程中，发现需“长按”触摸传感器；如果按下的频率过快会导致传感器探测不到“按下”操作。
 			 * 
 			 */
 			if(touchNum==1.0) {
-				LCD.drawString("click", 0, 0);
+				LCD.drawString("click...", 0, 0);
 				eV3TouchSensor.close();// 关闭传感器
 				
 			}
