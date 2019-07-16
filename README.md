@@ -19,68 +19,68 @@
 
 <tr>
 <td>按钮事件</td>
-<td>legoev3.demo.button</td>
-<td>ButtonDemo</td>
+<td>legoev3.demo.button;</td>
+<td>ButtonDemo.java</td>
 </tr>
 
 <tr>
 <td>屏幕打印</td>
-<td>legoev3.demo.LCD</td>
-<td>LCDDemo</td>
+<td>legoev3.demo.LCD;</td>
+<td>LCDDemo.java</td>
 </tr>
 
 <tr>
 <td>大型电机</td>
-<td>legoev3.demo.motor</td>
-<td>LargeMotorDemo</td>
+<td>legoev3.demo.motor;</td>
+<td>LargeMotorDemo.java</td>
 </tr>
 
 <tr>
 <td>中型电机</td>
-<td>legoev3.demo.motor</td>
-<td>MidsizeMotorDemo</td>
+<td>legoev3.demo.motor;</td>
+<td>MidsizeMotorDemo.java</td>
 </tr>
 
 <tr>
 <td>光线探测</td>
-<td>legoev3.demo.sensor</td>
-<td>AmbientLightDemo</td>
+<td>legoev3.demo.sensor;</td>
+<td>AmbientLightDemo.java</td>
 </tr>
 
 <tr>
 <td>颜色定义接口</td>
-<td>legoev3.demo.sensor</td>
-<td>ColorInterface</td>
+<td>legoev3.demo.sensor;</td>
+<td>ColorInterface.java</td>
 </tr>
 
 <tr>
 <td>颜色传感器</td>
-<td>legoev3.demo.sensor</td>
-<td>ColorSensorDemo</td>
+<td>legoev3.demo.sensor;</td>
+<td>ColorSensorDemo.java</td>
 </tr>
 
 <tr>
 <td>遥控器</td>
-<td>legoev3.demo.sensor</td>
-<td>ControlIRSensorDemo</td>
+<td>legoev3.demo.sensor;</td>
+<td>ControlIRSensorDemo.java</td>
 </tr>
 
 <tr>
 <td>距离传感器</td>
-<td>legoev3.demo.sensor</td>
-<td>DistanceModeIRSensorDemo</td>
+<td>legoev3.demo.sensor;</td>
+<td>DistanceModeIRSensorDemo.java</td>
 </tr>
 
 <tr>
 <td>定位传感器</td>
-<td>legoev3.demo.sensor</td>
-<td>SeekModeIRSensorDemo</td>
+<td>legoev3.demo.sensor;</td>
+<td>SeekModeIRSensorDemo.java</td>
 </tr>
 
 <tr>
 <td>触摸传感器</td>
-<td>legoev3.demo.sensor</td>
-<td>TouchSensorDemo</td>
+<td>legoev3.demo.sensor;</td>
+<td>TouchSensorDemo.java</td>
 </tr>
 
 </table>
