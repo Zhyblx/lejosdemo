@@ -22,7 +22,7 @@ import lejos.utility.Delay;
  *
  */
 
-public class IRSensorDemo {
+public class DistanceModeIRSensorDemo {
 
 	public static void main(String[] args) {
 		

@@ -4,7 +4,92 @@
 通过lejOS进行学习嵌入式开发。
 
 ----
-<b>硬件准备：</b><br>
+
+<b>(一)LejOS OpenApi</b> <br>
+
+1.示例程序
+
+<table >
+
+<tr>
+<td>描述</td>
+<td>包名称</td>
+<td>代码示例</td>
+</tr>
+
+<tr>
+<td>按钮事件</td>
+<td>legoev3.demo.button</td>
+<td>ButtonDemo</td>
+</tr>
+
+<tr>
+<td>屏幕打印</td>
+<td>legoev3.demo.LCD</td>
+<td>LCDDemo</td>
+</tr>
+
+<tr>
+<td>大型电机</td>
+<td>legoev3.demo.motor</td>
+<td>LargeMotorDemo</td>
+</tr>
+
+<tr>
+<td>中型电机</td>
+<td>legoev3.demo.motor</td>
+<td>MidsizeMotorDemo</td>
+</tr>
+
+<tr>
+<td>光线探测</td>
+<td>legoev3.demo.sensor</td>
+<td>AmbientLightDemo</td>
+</tr>
+
+<tr>
+<td>颜色定义接口</td>
+<td>legoev3.demo.sensor</td>
+<td>ColorInterface</td>
+</tr>
+
+<tr>
+<td>颜色传感器</td>
+<td>legoev3.demo.sensor</td>
+<td>ColorSensorDemo</td>
+</tr>
+
+<tr>
+<td>遥控器</td>
+<td>legoev3.demo.sensor</td>
+<td>ControlIRSensorDemo</td>
+</tr>
+
+<tr>
+<td>距离传感器</td>
+<td>legoev3.demo.sensor</td>
+<td>DistanceModeIRSensorDemo</td>
+</tr>
+
+<tr>
+<td>定位传感器</td>
+<td>legoev3.demo.sensor</td>
+<td>SeekModeIRSensorDemo</td>
+</tr>
+
+<tr>
+<td>触摸传感器</td>
+<td>legoev3.demo.sensor</td>
+<td>TouchSensorDemo</td>
+</tr>
+
+</table>
+
+
+----
+
+<b>(二)工作准备</b> <br>
+<b>a)硬件准备：</b><br>
 <br>
 1.EV3主机<br>
 2.16GB Micro SD卡(需完成烧录lejos)<br>
@@ -14,7 +99,7 @@
 <br>
 <br>
 
-<b>软件准备：</b><br>
+<b>b)软件准备：</b><br>
 <br>
 1.Eclipse<br>
 2.Eclipse LeJOS插件<br>
@@ -24,8 +109,3 @@
 
 ###### 备注：<br> 1.必须使用JDK7，原因Java嵌入式运行环境Oracle只支持到JDK7。<br> 2.电脑系统我选择的是ubuntu18.04(主要因为个人喜欢liunx,【lejos官方没有给出ubuntu系统的配置教程；所以，不想折腾的同学请绕行自Windows或macOS】)。
 
-----
-<b>--学习日志--</b> <br>
-1.LCD(2019年7月3日) <br>
-2.Motor(2019年7月3日) <br>
-3.Button((2019年7月4日)) <br>
