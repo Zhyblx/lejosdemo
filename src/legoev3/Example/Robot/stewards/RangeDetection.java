@@ -1,5 +1,6 @@
 package legoev3.Example.Robot.stewards;
 
+import lejos.hardware.lcd.LCD;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3IRSensor;
 import lejos.hardware.sensor.SensorMode;
@@ -27,6 +28,7 @@ public class RangeDetection {
 			returnDistanceNum = floatSensorMode[i];
 
 		}
+		LCD.drawString(String.valueOf(returnDistanceNum), 0, 1);
 		iRSensor.close();// 关闭传感器
 		return returnDistanceNum;
 
