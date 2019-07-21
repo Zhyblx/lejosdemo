@@ -1,4 +1,4 @@
-package legoev3.Example.Robot;
+package legoev3.Example.Robot.stewards;
 
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3ColorSensor;
@@ -6,7 +6,6 @@ import lejos.hardware.sensor.SensorMode;
 
 /**
  * 类：OpticalDetection(光学检测)
- * 
  * @author zhangyibin
  *
  */
