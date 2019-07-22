@@ -38,7 +38,7 @@ public class StewardsRobot implements Runnable {
 //				Delay.msDelay(1000);
 				int i = 0;
 
-				while (i > 0) {
+				while (true) {
 					motorC.rotate(360);
 					motorB.rotate(360);
 					if (i == 4) {
