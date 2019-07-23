@@ -24,6 +24,7 @@ public class StewardsRobot implements Runnable {
 		float DistanceNum = 0;
 //		RangeDetection rangeDetection=null;
 		while (true) {
+			int i = 5;// 每次探测都要标记为5
 			if (srs.getSRS() == true) {
 				LCD.drawString("security", 0, 5);
 				Delay.msDelay(2000);
@@ -32,24 +33,25 @@ public class StewardsRobot implements Runnable {
 			}
 			DistanceNum = RangeDetection.getRangeDetection();// 距离值
 			if (DistanceNum >= 0 && DistanceNum <= 50) {
-//				motorC.forward();
-//				motorB.forward();
-
+				Delay.msDelay(2000);
+				motorC.forward();
+				motorB.forward();
+				Delay.msDelay(2000);
 //				Delay.msDelay(1000);
-				int i = 0;
-
 				while (true) {
-					motorC.rotate(360);
-					motorB.rotate(360);
-					if (i == 4) {
-						motorC.stop();
-						motorB.stop();
-						break;
+					LCD.drawInt(i, 0, 6);
+					motorC.rotate(90);
+//					motorB.rotate(90);
+					Delay.msDelay(2000);
 
+					i--;
+					if (i == 0) {
+						break;
 					}
 
-					i++;
 				}
+				motorC.stop();
+				motorB.stop();
 
 			}
 		}
