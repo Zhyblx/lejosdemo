@@ -1,5 +1,7 @@
 package legoev3.Example.Robot.MARK_2;
 
+import legoev3.Example.Robot.MARK_1.SRS;
+import lejos.hardware.lcd.LCD;
 import lejos.hardware.motor.EV3LargeRegulatedMotor;
 import lejos.hardware.port.MotorPort;
 import lejos.robotics.RegulatedMotor;
@@ -20,52 +22,61 @@ public class Autopilot implements Runnable {
 
 	@Override
 	public void run() {
+		SRS srs = new SRS();
 		int count = 0;
-		while (true) {
+		while (count >= 0) {
 			colorNum = ColorDetection.getColorDetection();
-			/*
-			 * 1.颜色值：0 (代表探测到红色)
-			 * 如果探测到的颜色值不等于0(红色)，那么电机向前500毫秒
-			 * 
-			 * 2.颜色值：1 (代表探测到绿色)
-			 * 如果探测到的颜色值等于1(绿色)，那么电机停止
-			 * 
-			 */
-			if (colorNum != 0) {
+			if (srs.getSRS() == true) {
+				LCD.drawString("SRS", 0, 5);
+				Delay.msDelay(2000);
+				System.exit(0); // 关闭程序
+
+			} else if (colorNum == 0 || colorNum == 3) { // 探测到红色
+				motorC.setSpeed(40);
+				motorB.setSpeed(40);
 				motorC.forward();
 				motorB.forward();
-				Delay.msDelay(500);
-
-			} else if (colorNum == 1) {
-				motorC.stop();
+				Delay.msDelay(1500);
 				motorB.stop();
-				Delay.msDelay(500);
+				motorC.stop();
+				motorB.rotate(16);// 矫正方向
 
-			} else {
-				if (count == 0) {
-					motorC.rotate(90);
-					Delay.msDelay(500);
+			} else if (colorNum == 6) { // 探测到白色
+				motorC.rotate(450);
+				Delay.msDelay(1500);
+				motorC.stop();
 
-				}
+				motorB.rotate(360);
+				Delay.msDelay(1500);
+				motorB.stop();
+			} else if (colorNum == 2) {
+				motorB.rotate(360);
+				Delay.msDelay(1500);
+				motorB.stop();
 
-				if (count == 1) {
-					motorB.rotate(90);
-					Delay.msDelay(500);
+				motorC.rotate(270);
+				Delay.msDelay(1500);
+				motorC.stop();
 
-				}
-
-				motorC.forward();
-				motorB.forward();
-				Delay.msDelay(500);
+			} else if (colorNum == 7) {
+				motorC.setSpeed(720);
+				motorB.setSpeed(720);
+				motorC.backward();// 倒退
+				motorB.backward();
+				Delay.msDelay(1500);
+				break;
 
 			}
-			count++;
 
+			LCD.drawString("count:" + count, 0, 0);
+			count++;
 		}
 	}
 
 	public static void main(String[] args) throws Exception {
 		new Thread(new Autopilot()).start();
+		LCD.drawString("The demonstration is over", 0, 6);
+		Delay.msDelay(3000);
 
 	}
 }

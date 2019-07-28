@@ -4,6 +4,7 @@ import lejos.hardware.lcd.LCD;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.hardware.sensor.SensorMode;
+import lejos.utility.Delay;
 
 /**
  * 类：ColorDetection (颜色检测)
@@ -34,4 +35,11 @@ public class ColorDetection {
 		return returnColorNum;
 
 	}
+
+	public static void main(String[] args) throws Exception {
+		ColorDetection.getColorDetection();
+		Delay.msDelay(2000);
+
+	}
+
 }

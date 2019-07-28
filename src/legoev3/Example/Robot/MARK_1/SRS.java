@@ -14,7 +14,7 @@ public class SRS {
 	 */
 
 	public boolean getSRS() {
-		boolean SRSNum = Button.DOWN.isDown();
+		boolean SRSNum = Button.LEFT.isDown();
 		return SRSNum;
 
 	}
