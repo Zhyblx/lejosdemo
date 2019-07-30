@@ -9,16 +9,14 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import legoev3.Example.Robot.MARK_1.SRS;
-import lejos.hardware.Button;
 import lejos.hardware.lcd.LCD;
 import lejos.hardware.motor.EV3LargeRegulatedMotor;
 import lejos.hardware.port.MotorPort;
 import lejos.robotics.RegulatedMotor;
 import lejos.utility.Delay;
 
-
 public class Autopilot {
-	
+
 	private static RegulatedMotor motorC = new EV3LargeRegulatedMotor(MotorPort.C);
 	private static RegulatedMotor motorB = new EV3LargeRegulatedMotor(MotorPort.B);
 
@@ -30,7 +28,7 @@ public class Autopilot {
 			motorC.setSpeed(50);// 设置电机C的转速
 			motorB.setSpeed(50);// 设置电机B的转速
 			float colorNum = 0;// 返回探测的颜色值
-			
+
 			int i = 5;
 			while (i >= 0) {
 				try {
@@ -51,8 +49,8 @@ public class Autopilot {
 							Delay.msDelay(2000);
 							System.exit(0); // 关闭程序
 
-						} else if (colorNum == 6 ) { // 探测到白色
-							
+						} else if (colorNum == 6) { // 探测到白色
+
 							motorC.forward();
 							motorB.forward();
 							Delay.msDelay(2000);
@@ -60,35 +58,45 @@ public class Autopilot {
 							motorC.stop();
 							motorB.rotate(16);// 矫正方向
 
-						} else if (colorNum == 0 ||colorNum==2 ) { // 探测到红色 或 蓝色
+						} else if (colorNum == 0 || colorNum == 2 || colorNum == 7) { // 探测到红色 或 蓝色 或 黑色
 							motorC.rotate(450);
 							Delay.msDelay(1500);
-							
+
 							motorC.stop();
 							Delay.msDelay(1500);
-							
+
 							motorC.forward();
 							motorB.forward();
 							Delay.msDelay(1500);
-							
+
 							motorB.stop();
 							motorC.stop();
 							Delay.msDelay(1500);
 
-							motorB.rotate(450);
+							motorB.rotate(460);
 							Delay.msDelay(1500);
 							motorB.stop();
-						} 
+						}
+
+						if (count == 12) {
+							motorC.setSpeed(720);
+							motorB.setSpeed(720);
+							Delay.msDelay(1500);
+
+							motorC.backward();// 倒退
+							motorB.backward();
+							Delay.msDelay(1500);
+
+							motorB.stop();
+							motorC.stop();
+							Delay.msDelay(1500);
+
+							System.exit(0);
+						}
 
 						LCD.drawString("count:" + count, 0, 0);
 						count++;
 					}
-					if(Button.LEFT.isDown()) {
-						System.exit(0);
-						
-					}
-					break;
-
 				}
 				i--;
 
