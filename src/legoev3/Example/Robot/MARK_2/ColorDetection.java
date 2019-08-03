@@ -1,6 +1,5 @@
 package legoev3.Example.Robot.MARK_2;
 
-import lejos.hardware.lcd.LCD;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.hardware.sensor.SensorMode;
@@ -31,7 +30,7 @@ public class ColorDetection {
 		}
 
 		eV3ColorSensor.close(); // 关闭传感器
-		LCD.drawString("Color:" + String.valueOf(returnColorNum), 0, 3);
+//		LCD.drawString("Color:" + String.valueOf(returnColorNum), 0, 3);
 		return returnColorNum;
 
 	}
