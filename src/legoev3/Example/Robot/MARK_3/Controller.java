@@ -7,32 +7,24 @@ import lejos.hardware.motor.EV3LargeRegulatedMotor;
 import lejos.hardware.port.MotorPort;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3IRSensor;
-import lejos.hardware.sensor.EV3TouchSensor;
-import lejos.hardware.sensor.SensorMode;
 import lejos.robotics.RegulatedMotor;
 import lejos.utility.Delay;
-import java.util.Timer;
-import java.util.TimerTask;
 
 /**
- * 类：Telecar (遥控车)
- * 
- * 1 代表前进；1\2：6代表向左转 ； 1\4：10代表向右转
- * 
- * 3 代表后退；3\2：7代表向左转 ； 3\4：11代表向右转
+ * 类：Controller
+ * 作用：遥控车的逻辑逻辑控制部分
  * 
  * @author zhangyibin
  *
  */
 
-public class Telecar implements Runnable {
-
+public class Controller {
+	
 	private EV3IRSensor iRSensor = new EV3IRSensor(SensorPort.S1);// 远程传感器
 	private RegulatedMotor motorC = new EV3LargeRegulatedMotor(MotorPort.C);
 	private RegulatedMotor motorB = new EV3LargeRegulatedMotor(MotorPort.B);
-
-	@Override
-	public void run() {
+	
+	public void getController() {
 		int i = 5;
 		while (true) {
 			try {
@@ -129,45 +121,4 @@ public class Telecar implements Runnable {
 		}
 	}
 
-	private static Telecar telecar = new Telecar();
-	private static Timer timer = new Timer();
-	private static EV3TouchSensor eV3TouchSensor = new EV3TouchSensor(SensorPort.S3);// 触摸传感器
-	private static int i = 0;
-	private static TimerTask timerTack = new TimerTask() {
-		@Override
-		public void run() {
-			while (true) {
-				try {
-					Thread.sleep(1000);
-
-				} catch (Exception e) {
-					e.printStackTrace();
-
-				}
-				LCD.clear(8);
-				LCD.drawString("count:" + String.valueOf(i), 0, 6);
-				SensorMode sensorMode = eV3TouchSensor.getTouchMode();
-				float[] floatSensorMode = new float[sensorMode.sampleSize()];
-				sensorMode.fetchSample(floatSensorMode, 0);
-				for (float touchNum : floatSensorMode) {
-					if (touchNum == 1.0) {
-						LCD.clear(8);
-						LCD.drawString("security", 0, 6);
-						eV3TouchSensor.close();// 关闭传感器
-						Delay.msDelay(2000);
-						System.exit(0); // 关闭程序
-
-					}
-				}
-				i++;
-
-			}
-		}
-	};
-
-	public static void main(String[] args) throws Exception {
-		new Thread(telecar).start();
-		timer.schedule(timerTack, 0, 500);
-
-	}
 }
