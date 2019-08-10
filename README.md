@@ -1,13 +1,12 @@
-# lejosdemo
+# 乐高机器人开发项目
 
-
-通过lejOS进行学习嵌入式开发。
+文档说明如下：
 
 ----
 
-<b>(一)LejOS OpenApi</b> <br>
+<b>OpenApi</b> <br>
 
-1.示例程序
+1.Demo示例
 
 <table >
 
@@ -85,27 +84,70 @@
 
 </table>
 
+2.机器人示例
+
+<table>
+<tr>
+<td>机器人</td>
+<td>包名称</td>
+<td>描述</td>
+<td>研究时间</td>
+</tr>
+
+<tr>
+<td>管家机器人</td>
+<td>..Robot.MARK_1;</td>
+<td>
+用途：<br>
+周末叫外卖时，机器人可根据“门禁视频”的光线变化，自动为触发我家门禁的外卖骑手开门。
+</td>
+<td>2019年7月23日</td>
+</tr>
+
+<tr>
+<td>探月旅行者</td>
+<td>..Robot.MARK_2;</td>
+<td>
+用途：<br>
+机器人根据探测的路线完成自动驾驶，同时到达指定的探测区域，完成月面颜色的探测并记录。
+</td>
+<td>2019年7月29日</td>
+</tr>
+
+<tr>
+<td>猎鹰号</td>
+<td>..Robot.MARK_3;</td>
+<td>
+用途：<br>
+机器人实时探测并读取“人为”的红外信号，实现“遥控玩具车”的相关功能。
+</td>
+<td>2019年8月8日</td>
+</tr>
+
+
+</table>
 
 ----
 
-<b>(二)工作准备</b> <br>
-<b>a)硬件准备：</b><br>
+<b>入门准备</b> <br>
 <br>
-1.EV3主机<br>
+<b><i>a)硬件：</i></b><br>
+1.EV3控制器<br>
 2.16GB Micro SD卡(需完成烧录lejos)<br>
-3.电脑<br>
+3.电脑(liunx/Windows/MacOS)<br>
 4.USB及RJ12线缆<br>
-5.各类传感器(如：红外传感器、摄像头、电机等)<br>
+5.传感器<br>
+6.电机<br>
+7.乐高零件<br>
 <br>
 <br>
 
-<b>b)软件准备：</b><br>
-<br>
+<b><i>b)软件：</i></b><br>
 1.Eclipse<br>
 2.Eclipse LeJOS插件<br>
 3.JDK 7<br>
 4.Java嵌入式运行环境(JRE)：Oracle Java SE Embedded version 7 Update 75<br>
 5.LeJOS<br>
 
-###### 备注：<br> 1.必须使用JDK7，原因Java嵌入式运行环境Oracle只支持到JDK7。<br> 2.电脑系统我选择的是ubuntu18.04(主要因为个人喜欢liunx,【lejos官方没有给出ubuntu系统的配置教程；所以，不想折腾的同学请绕行自Windows或macOS】)。
+###### 说明：必须使用JDK7，原因是Java的嵌入式运行环境，Oracle只支持到JDK7。<br> 
 
